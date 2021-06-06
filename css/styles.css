@@ -1,0 +1,183 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+html { overflow-y: scroll} 
+
+
+label, select,input{
+  font-family: 'Calibri', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1d1d1d;
+}
+footer{
+  height:200px;
+ background-color: #1d1d1d;
+}
+
+#cabecera{
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:200px;
+  background-color: antiquewhite;
+}
+
+#buscarFiltros{
+    padding:20px;
+    background-color:antiquewhite;
+    width: 80vw;
+    display:grid;
+    column-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "lBuscador . . . . . ."
+      "cajaBuscador cajaBuscador cajaBuscador cajaBuscador cajaBuscador cajaBuscador btnBuscador "
+      "lGenero lAutor lTitulo lAnio lIdioma lEditorial ."
+      "sGenero sAutor sTitulo sAnio sIdioma sEditorial .";
+
+}
+
+#lBuscador{
+  grid-area:lBuscador;
+ 
+}
+#cajaBuscador{
+    grid-area:cajaBuscador;
+}
+#btnBuscador{
+    grid-area:btnBuscador;
+    border-radius: 5px;
+    border: none;
+    padding:7px 0px;
+    background-color:#6ac045;
+    color:white;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 700;
+   
+    letter-spacing: 1px;
+   
+}
+#btnBuscador:hover{
+  cursor:pointer;
+ 
+}
+
+#lGenero {
+  grid-area: lGenero;
+  padding:5px 0px;
+  align-self: end;
+
+  
+  
+}
+#lAutor {
+  grid-area: lAutor;
+  padding-bottom:5px;
+  align-self: end;
+  
+  
+}
+#lTitulo {
+  grid-area: lTitulo;
+  padding-bottom:5px;
+  align-self: end;
+}
+#lAnio {
+  grid-area: lAnio;
+  padding-bottom:5px;
+  align-self: end;
+}
+#lIdioma {
+  grid-area: lIdioma;
+  padding-bottom:5px;
+  align-self: end;
+}
+#lEditorial {
+  grid-area: lEditorial;
+  padding-bottom:5px;
+  align-self: end;
+}
+
+
+#sGenero {
+  grid-area: sGenero;
+}
+#sAutor {
+  grid-area: sAutor;
+}
+#sTitulo {
+  grid-area: sTitulo;
+}
+#sAnio {
+  grid-area: sAnio;
+}
+#sIdioma {
+  grid-area: sIdioma;
+}
+#sEditorial {
+  grid-area: sEditorial;
+}
+
+#container{
+  padding:50px;
+  background-color: #1d1d1d;
+  padding: 50px 0px;
+  width: 70vw;
+justify-content: center;
+  display:grid;
+  column-gap: 30px;
+  row-gap: 30px;
+  grid-template-columns: 180px 180px 180px 180px 180px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "cards cards cards cards cards"
+    "cards cards cards cards cards"
+    "cards cards cards cards cards"
+    "cards cards cards cards cards";
+  
+}
+
+.cards{
+  grid-template-areas: "cards";
+  background-color: white;
+  padding:10px;
+  border-radius: 10px;
+  display:flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  font-family : "Calibri";
+  font-size : 1.1rem;
+}
+
+.autorCard{
+justify-self: end;
+text-align: center;
+padding: 2px 0 2px 0;
+}
+.tituloCard{
+justify-self: end;
+font-weight: 800;
+text-align: center;
+}
+.precioCard{
+  justify-self: end;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.imagenCard{
+  width: 100%;
+}
