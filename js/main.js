@@ -30,44 +30,32 @@ class Libro {
 
     }
 
-    obtenerLibro() {
+    obtenerLibro(contenedorDestino) {
         //Obtengo el div contenedor y lo asocio a un objeto
 
-        let main = document.getElementById("detallesLibro");
+        let main = document.getElementById(contenedorDestino);
         main.innerHTML = "";
 
-
         let contenedor = document.createElement("div");
-        let imagen = document.createElement("img");
-        let descripcion = document.createElement("div");
-        //Le pongo la ruta a las imágenes cuyo nombre es su código ISBN
-        imagen.src = `portadas/${this.isbn}.jpg`;
-        //Le agrego contenido al div descripcion
-        descripcion.style.fontFamily = "Calibri";
-        descripcion.style.fontSize = "1.1rem";
-        descripcion.style.padding = "0 10px 0 10px";
-        imagen.style.height = "300px";
-        descripcion.innerHTML = `<p><strong>Título del libro:</strong> ${this.titulo}</p>
-                               <p><strong>Autor:</strong> ${this.autor}</p>
-                               <p><strong>Año:</strong> ${this.anio}</p>
-                               <p><strong>Género:</strong> ${this.genero}</p>
-                               <p><strong>Idioma:</strong> ${this.idioma}</p>
-                               <p><strong>Precio:</strong> ${this.precio}</p>
-                               <p><strong>ISBN:</strong> ${this.isbn}</p>
-                               <p><strong>Peso:</strong> ${this.peso} grs</p>
-                               <p><strong>Volumen:</strong> ${this.volumen} cm^3</p>
-                               <p><strong>Editorial:</strong> ${this.editorial}</p>`;
+        contenedor.classList.add("contenedor");
+      
+        contenedor.innerHTML =  `<img src="/portadas/${this.isbn}.jpg" alt="" class="imagen">
+                                <div class="descripcion">
+                                <p><strong>Título del libro:</strong> ${this.titulo}</p>
+                                <p><strong>Autor:</strong> ${this.autor}</p>
+                                <p><strong>Año:</strong> ${this.anio}</p>
+                                <p><strong>Género:</strong> ${this.genero}</p>
+                                <p><strong>Idioma:</strong> ${this.idioma}</p>
+                                <p><strong>ISBN:</strong> ${this.isbn}</p>
+                                <p><strong>Peso:</strong> ${this.peso} grs</p>
+                                <p><strong>Volumen:</strong> ${this.volumen} cm^3</p>
+                                <p><strong>Editorial:</strong> ${this.editorial}</p>
+                                <p><strong>Precio:</strong> <span style="font-size:1.3rem;">$${this.precio}</span></p>
+                                <button type="button" id="botonCarrito">Añadir al carrito</button></div>`;
+        
 
-        contenedor.style.backgroundColor = "BlanchedAlmond";
-        contenedor.style.display = "flex";
-        contenedor.style.alignContent = "center";
-        contenedor.style.justifyContent = "center";
-        contenedor.appendChild(imagen);
-        contenedor.appendChild(descripcion);
-        main.appendChild(contenedor);
-
-
-
+       
+        return contenedorDestino ? main.appendChild(contenedor) : contenedor;
     }
 }
 
@@ -79,23 +67,29 @@ for (const obj of LIBROS) {
     libros.push(new Libro(obj));
 }
 
+const seleccionados = [];
+
 function generarCardLibros() {
     let contenedor = document.getElementById("container");
     contenedor.innerHTML = "";
     for (let i = 0; i < libros.length; i++) {
         libros[i].generarCard("container");
     }
-    $(document).ready(function() {
-        $("a").click(function(event) {
-            // this.append wouldn't work
-            //alert(this.id);
+    
+        $("a").click(function() {
+            
             for(let i = 0;i<libros.length;i++){
                 if(libros[i].isbn == this.id){
-                    libros[i].obtenerLibro();
+                    libros[i].obtenerLibro("detallesLibro");
+                    $("#botonCarrito").click(function() {
+                        alert("Se ha añadido al carrito");
+                        seleccionados.push(libros[i].isbn);
+                        sessionStorage.setItem(`nro${seleccionados.length}`,libros[i].isbn);
+                    });
                     
                 }
             }
-        });
+       
     });
 }
 
