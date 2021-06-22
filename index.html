@@ -12,54 +12,58 @@
 
     <!-- Importo las fuentes de google -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+
     <title>S.A.L</title>
 
 </head>
 
 <body>
-
-    <header id="cabecera">
-
-
-
+<!-- class="p-3 bg-dark text-white shadow p-3 mb-5" -->
+    <header id="cabecera" class="bg-dark text-white p-3 shadow-lg mb-5" >
+        
         <div id="buscarFiltros">
 
             <label for="" id="lBuscador">Buscador</label>
 
-            <input name ="general" type="text" class="campoBusqueda" id="cajaBuscador">
-            <input type="button" value="Buscar" id="btnBuscador">
 
-            <label for="" id="lGenero">Género:</label>
-            <select name="genero" class="campoBusqueda" id="sGenero">
+            <input type="text" id="cajaBuscador" class="form-control campoBusqueda" placeholder="Ingrese su busqueda..."
+                aria-label="Buscador" aria-describedby="basic-addon1">
+            <button type="button" id="btnBuscador" class="btn btn-success btn-lg">Buscar</button>
+            <button type="button" id="btnVerCarrito" class="btn  btn-lg" style="background-color: #20c997;color:white"><img src="img/shopping-cart.png" style="height: 25px; padding-right:5px;" alt=""> Ver carrito</button>
+
+            <label for="sGenero" id="lGenero">Género:</label>
+            <select name="genero" class="sCategorias form-select" id="sGenero" aria-label="Seleccionar...">
                 <option value="Todos" selected>Todos</option>
 
             </select>
 
             <label for="" id="lAutor">Autor:</label>
-            <select name="autor" class="campoBusqueda" id="sAutor">
+            <select name="autor" class="sCategorias form-select" id="sAutor" aria-label="Seleccionar...">
                 <option value="Todos" selected>Todos</option>
             </select>
 
             <label for="" id="lTitulo">Título:</label>
-            <select name="titulo" class="campoBusqueda" id="sTitulo">
+            <select name="titulo" class="sCategorias form-select" id="sTitulo" aria-label="Seleccionar...">
                 <option value="Todos" selected>Todos</option>
             </select>
 
             <label for="" id="lAnio">Año:</label>
-            <select name="anio" class="campoBusqueda" id="sAnio">
+            <select name="anio" class="sCategorias form-select" id="sAnio" aria-label="Seleccionar...">
                 <option value="Todos" selected>Todos</option>
 
             </select>
 
             <label for="" id="lIdioma">Idioma:</label>
-            <select name="idioma" class="campoBusqueda" id="sIdioma">
+            <select name="idioma" class="sCategorias form-select" id="sIdioma" aria-label="Seleccionar...">
                 <option value="Todos" selected>Todos</option>
             </select>
 
             <label for="" id="lEditorial">Editorial:</label>
-            <select name="editorial" class="campoBusqueda" id="sEditorial">
+            <select name="editorial" class="sCategorias form-select" id="sEditorial" aria-label="Seleccionar...">
                 <option value="Todos" selected>Todos</option>
 
             </select>
@@ -71,24 +75,29 @@
 
     <main>
 
+      
 
-        <div id="container">
+        <div id="conteiner">
 
 
         </div>
-        
-        <div id="detallesLibro" style="display:block;">
+
+        <div id="detallesLibro">
 
 
         </div>
 
     </main>
 
-    <footer>
+    <footer id="pie">
 
+    
+
+       
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/data.js"></script>
     <script src="js/main.js"></script>
 </body>
 

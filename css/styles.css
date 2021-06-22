@@ -3,10 +3,12 @@
   padding:0;
   box-sizing: border-box;
 }
-html { overflow-y: scroll} 
+html { 
+  
+  overflow-y: scroll} 
 
 
-label, select,input{
+label, select{
   font-family: 'Calibri', sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
@@ -16,25 +18,23 @@ main{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #1d1d1d;
 }
 footer{
   height:200px;
- background-color: #1d1d1d;
 }
 
 #cabecera{
-
   display:flex;
   justify-content: center;
   align-items: center;
   height:200px;
-  background-color: antiquewhite;
+  
+  
 }
 
 #buscarFiltros{
     padding:20px;
-    background-color:antiquewhite;
+    
     width: 80vw;
     display:grid;
     column-gap: 20px;
@@ -42,7 +42,7 @@ footer{
     grid-template-rows: auto;
     grid-template-areas: 
       "lBuscador . . . . . ."
-      "cajaBuscador cajaBuscador cajaBuscador cajaBuscador cajaBuscador cajaBuscador btnBuscador "
+      "cajaBuscador cajaBuscador cajaBuscador cajaBuscador btnBuscador btnVerCarrito . "
       "lGenero lAutor lTitulo lAnio lIdioma lEditorial ."
       "sGenero sAutor sTitulo sAnio sIdioma sEditorial .";
 
@@ -55,21 +55,14 @@ footer{
 #cajaBuscador{
     grid-area:cajaBuscador;
 }
-#btnBuscador{
-    grid-area:btnBuscador;
-    border-radius: 5px;
-    border: none;
-    padding:7px 0px;
-    background-color:#6ac045;
-    color:white;
-    font-family: 'Arimo', sans-serif;
-    font-weight: 700;
-   
-    letter-spacing: 1px;
+#btnVerCarrito{
+    grid-area:btnVerCarrito;
+
    
 }
-#btnBuscador:hover{
-  cursor:pointer;
+#btnBuscador{
+  grid-area:btnBuscador;
+
  
 }
 
@@ -129,16 +122,15 @@ footer{
   grid-area: sEditorial;
 }
 
-#container{
+#conteiner{
   padding:50px;
-  background-color: #1d1d1d;
   padding: 50px 0px;
   width: 70vw;
 justify-content: center;
   display:grid;
   column-gap: 30px;
   row-gap: 30px;
-  grid-template-columns: 180px 180px 180px 180px 180px;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: 
     "cards cards cards cards cards"
@@ -148,10 +140,11 @@ justify-content: center;
   
 }
 
-.cards{
+.tarjetas{
   grid-template-areas: "cards";
-  background-color: white;
-  padding:10px;
+  background-color: whitesmoke;
+  padding:10px 20px;
+  border:1px solid black;
   border-radius: 10px;
   display:flex;
   flex-direction: column;
@@ -159,6 +152,10 @@ justify-content: center;
   align-items: center;
   font-family : "Calibri";
   font-size : 1.1rem;
+} 
+.tarjetas p{
+  padding:0;
+  margin:0;
 }
 
 .autorCard{
@@ -191,11 +188,13 @@ text-align: center;
   
 
 }
+.descripcion p{
+  padding:0;
+  margin:0;
+}
 
 .contenedor{
-   background-color: blanchedalmond;
-   padding:20px;
-   border-radius: 10px;
+  
    display: flex;
    align-items: center;
    justify-content: center;
@@ -203,17 +202,10 @@ text-align: center;
 }
 
 .imagen{
-  height: 300px;
+  height: 30vh;
 }
-#botonCarrito {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px;
-  cursor: pointer;
-}
+
+
+
+
+
